@@ -571,7 +571,8 @@ public:
             if (range < lidarMinRange || range > lidarMaxRange)
                 continue;
 
-            int rowIdn = laserCloudIn->points[i].ring;
+            // int rowIdn = laserCloudIn->points[i].ring;
+            int rowIdn = (i % 64) + 1 ; // for MulRan dataset,
             // if sensor is a velodyne (ringFlag = 2) calculate rowIdn based on number of scans
             if (ringFlag == 2) { 
                 float verticalAngle =
